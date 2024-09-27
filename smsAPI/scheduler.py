@@ -5,7 +5,7 @@ from smsAPI.utils import send_sms
 
 def check_and_send_scheduled_messages():
     # Get all pending messages with send_time <= now
-    messages = UserMessage.objects.filter(sms_status='pending', send_time__lte=now())
+    messages = UserMessage.objects.filter(sms_status='pending', sending_time__lte=now())
     
     for message in messages:
         print(f"Attempting to send message to {message.phone_number}...")

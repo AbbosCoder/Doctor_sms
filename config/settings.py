@@ -12,18 +12,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
+import environ
 
-# .env faylini yuklash
-load_dotenv()
+env = environ.Env()
+environ.Env.read_env() 
 
-# Kalitlarni o'qish
-secret_key = os.getenv('SECRET_KEY')
-debug = os.getenv('DEBUG')
-
-domain_ip = os.getenv('DOMAIN_IP')
-SMS_EMAIL = os.getenv('SMS_EMAIL')
-SMS_PASSWORD = os.getenv('SMS_PASSWORD')
+SMS_EMAIL = env('SMS_EMAIL')
+SMS_PASSWORD = env('SMS_PASSWORD')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,10 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret_key
+SECRET_KEY =  env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -128,11 +123,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-
-# SECURE_SSL_REDIRECT = True
-# CSRF_COOKIE_SECURE = True
-# SESSION_COOKIE_SECURE = True
 
 
 # Static files (CSS, JavaScript, Images)
