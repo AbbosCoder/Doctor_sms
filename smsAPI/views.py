@@ -32,10 +32,7 @@ class UserDetailView(generics.RetrieveAPIView):
         # Get related SentSMS records
         sent_sms_records = SentSMS.objects.filter(user_message=instance)
         sent_sms_serializer = SentSMSSerializer(sent_sms_records, many=True)
-        return Response({
-            'user_message': serializer.data,
-            'sent_sms': sent_sms_serializer.data  # Add related SentSMS data
-        })
+        return Response(serializer.data)
 
 class UserMessageUpdateView(generics.UpdateAPIView):
     queryset = UserMessage.objects.all()
