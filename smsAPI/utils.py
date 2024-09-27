@@ -1,5 +1,11 @@
 from eskiz.client.sync import ClientSync
-from config.settings import SMS_EMAIL,SMS_PASSWORD
+import environ
+
+env = environ.Env()
+environ.Env.read_env() 
+
+SMS_EMAIL = str(env('SMS_EMAIL'))
+SMS_PASSWORD = str(env('SMS_PASSWORD'))
 
 
 def send_sms(phone_number, message):
