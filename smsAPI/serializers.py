@@ -21,4 +21,4 @@ class UserMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserMessage
         fields = ['id', 'full_name', 'phone_number', 'address', 'birth_day', 'sending_time', 
-                  'description', 'sms_status', 'user_status', 'created_at', 'sent_sms']  # Include SMS history
+                  'description', 'sms_status', 'user_status', 'created_at']  # Include SMS history
