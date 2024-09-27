@@ -1,7 +1,7 @@
 from eskiz.client.sync import ClientSync
 
-SMS_EMAIL = 'abbos2004off@gmail.com'
-SMS_PASSWORD = 'nU6XMJJ4nyUXRtK4gNRbvlZvgXkcPc4jBmG3yOlC'
+SMS_EMAIL = 'xxxxxxxxx'
+SMS_PASSWORD = 'xxxxxxxx'
 
 
 def send_sms(phone_number, message):
